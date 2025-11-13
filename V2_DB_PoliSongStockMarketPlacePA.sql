@@ -5,13 +5,11 @@ USE PoliSongStockMarketPlacePA;
 
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-    tipo_usuario ENUM('Comprador','Vendedor') NOT NULL,
+    tipo_usuario VARCHAR (30) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
-    telefono VARCHAR(25),
     correo VARCHAR(100) UNIQUE NOT NULL,
     direccion VARCHAR(255),
     password VARCHAR(255) NOT NULL,
-    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -57,7 +55,6 @@ CREATE TABLE disco_mp3 (
     nombre VARCHAR(100) NOT NULL,
     genero VARCHAR(100),
     precio DECIMAL(10,2),
-    imagen VARCHAR(255),
     FOREIGN KEY (id_autor) REFERENCES autor(id_autor)
 );
 
@@ -78,7 +75,6 @@ CREATE TABLE disco_vinilo (
     anio_salida YEAR,
     precio DECIMAL(10,2),
     cantidad INT,
-    imagen VARCHAR(255),
     FOREIGN KEY (id_autor) REFERENCES autor(id_autor)
 );
 
